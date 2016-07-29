@@ -309,12 +309,14 @@ public class MainActivity extends Activity implements RecognizerHelper.CallbackR
      * @param arrayList 识别结果
      */
     private void onGetRecognitionResult(ArrayList<String> arrayList) {
+        StringBuffer sb=new StringBuffer();
         if (!isRecognitionError) {
             mHanler.removeCallbacks(RecognitionTimeoutCheck);
             mHanler.removeCallbacks(RecognitionStop);
             if (arrayList != null && arrayList.size() > 0) {
                 boolean isMatch = false;
                 for (String result : arrayList) {
+                    sb.append(result+",");
                     LogUtil.logV(TAG, result);
                     isMatch = result.equals(arrayRecognition[recognitionIndex]);
                     if (!isMatch) {
@@ -325,7 +327,9 @@ public class MainActivity extends Activity implements RecognizerHelper.CallbackR
                         break;
                     }
                 }
+                String result=sb.toString();
                 if (isMatch) {
+                    tvResult.setText("识别为:"+result.substring(0,result.length()-1));
                     switch (recognitionIndex) {
                         case 0:
                             capture();
@@ -338,6 +342,8 @@ public class MainActivity extends Activity implements RecognizerHelper.CallbackR
                             break;
                     }
                 } else {
+
+                    tvResult.setText("识别为:"+result.substring(0,result.length()-1));
                     onRecognitionError(ErrorMismatching);
                 }
             }
@@ -345,7 +351,6 @@ public class MainActivity extends Activity implements RecognizerHelper.CallbackR
     }
     @Override
     public void onResults(Bundle bundle) {
-        tvResult.setText(bundle.toString());
         ArrayList<String> listValue = bundle.getStringArrayList("results_recognition");
         onGetRecognitionResult(listValue);
     }

@@ -13,7 +13,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="#ff0000"
-        android:textSize="40sp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:textSize="60sp"
         />
     <TextView
         android:id="@+id/tv_record_time"
@@ -21,11 +23,11 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:textColor="#ff0000"
-        android:textSize="40sp"
+        android:textSize="45sp"
         />
     <TextView android:id="@+id/result"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:textSize="35sp"/>
+        android:textSize="50sp"/>
 </RelativeLayout>

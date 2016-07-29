@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">AR_VoiceHelper</string>
     <array name="recognition_array">
-        <item>请拍照</item>
-        <item>请录像</item>
-        <item>远程开启</item>
+        <item>拍照</item>
+        <item>录像</item>
+        <item>远程协助</item>
     </array>
 </resources>
