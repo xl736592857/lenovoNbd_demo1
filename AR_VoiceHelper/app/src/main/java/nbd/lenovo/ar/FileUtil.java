@@ -19,31 +19,30 @@ public class FileUtil {
      */
     public static boolean writeDataToFile(byte[] data, File outFile)
             throws IOException {
-        if (!outFile.exists()) {
-            outFile.createNewFile();
-        }
         boolean isSucc = false;
-        FileOutputStream out = null;
         try {
-            out = new FileOutputStream(outFile);
+            if (!outFile.exists()) {
+                outFile.createNewFile();
+            }
+            FileOutputStream out = new FileOutputStream(outFile);
             try {
                 out.write(data);
                 isSucc = true;
             } catch (IOException e) {
                 e.printStackTrace();
+            } finally {
+                if (out != null) {
+                    try {
+                        out.close();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
-        } finally {
-            if (out != null) {
-                try {
-                    out.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-            return isSucc;
         }
+        return isSucc;
 
     }
 }
