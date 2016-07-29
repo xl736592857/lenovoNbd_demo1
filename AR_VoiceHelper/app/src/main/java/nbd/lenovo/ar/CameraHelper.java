@@ -93,7 +93,6 @@ public class CameraHelper {
         }
         return optimalSize;
     }
-
     /**
      * @return the default camera on the device. Return null if there is no camera on the device.
      */
