@@ -34,7 +34,6 @@ public class CameraHelper {
 
     public static final int MEDIA_TYPE_IMAGE = 1;
     public static final int MEDIA_TYPE_VIDEO = 2;
-
     /**
      * Iterate over supported camera video sizes to see which one best fits the
      * dimensions of the given view while maintaining the aspect ratio. If none can,
